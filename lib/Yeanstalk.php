@@ -13,9 +13,10 @@ namespace Yeanstalk;
  * ...
  * 'components' => array(
  *   'yeanstalk' => array(
+ *     'class' => '\\Yeanstalk\\Yeanstalk',
  *     'connections' => array(
  *       'default' => array(
- *         'host' => 127.0.0.1,
+ *         'host' => '127.0.0.1',
  *         'port' => 11300,
  *       ),
  *     ),
@@ -53,11 +54,11 @@ class Yeanstalk extends \CApplicationComponent
   * <code>
   * array(
   *   'default' => array(
-  *     'host' => 127.0.0.1,
+  *     'host' => '127.0.0.1',
   *     'port' => 11300,
   *   ),
   *   'secondary' => array(
-  *     'host' => 127.0.0.1,
+  *     'host' => '127.0.0.1',
   *     'port' => 11301,
   *   ),
   * ),
@@ -79,7 +80,7 @@ class Yeanstalk extends \CApplicationComponent
     if (!is_array($this->connections))
       $this->connections = array();
 
-    if (class_exists('Pheanstalk', false))
+    if (!class_exists('Pheanstalk', false))
       $this->registerAutoloader();
   }
 
@@ -109,12 +110,12 @@ class Yeanstalk extends \CApplicationComponent
   {
     $classesPath = dirname(__FILE__) . '/../vendors/Pheanstalk/classes';
     require_once($classesPath . '/Pheanstalk/ClassLoader.php');
-    Pheanstalk_ClassLoader::register($classesPath);
+    \Pheanstalk_ClassLoader::register($classesPath);
 
     // Unregister and register with Yii's autoloader so Yii's autoloader will be the last.
     $autoloader = array('Pheanstalk_ClassLoader', 'load');
     spl_autoload_unregister($autoloader);
-    Yii::registerAutoloader($autoloader);
+    \Yii::registerAutoloader($autoloader);
   }
 }
 
