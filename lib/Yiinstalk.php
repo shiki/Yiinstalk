@@ -1,6 +1,6 @@
 <?php
 
-namespace Yeanstalk;
+namespace Yiinstalk;
 
 /**
  * A Yii application component that provides access to configured instances of
@@ -12,8 +12,8 @@ namespace Yeanstalk;
  * <code>
  * ...
  * 'components' => array(
- *   'yeanstalk' => array(
- *     'class' => '\\Yeanstalk\\Yeanstalk',
+ *   'yiinstalk' => array(
+ *     'class' => '\\Yiinstalk\\Yiinstalk',
  *     'connections' => array(
  *       'default' => array(
  *         'host' => '127.0.0.1',
@@ -29,7 +29,7 @@ namespace Yeanstalk;
  *
  * <code>
  * // Get a client configured as "default".
- * $client = \Yii::app()->yeanstalk->getClient('default');
+ * $client = \Yii::app()->yiinstalk->getClient('default');
  * </code>
  *
  * The above will return an instance of {@link Pheanstalk} configured using the parameters
@@ -37,7 +37,7 @@ namespace Yeanstalk;
  *
  * @author Shiki <shikishiji@gmail.com>
  */
-class Yeanstalk extends \CApplicationComponent
+class Yiinstalk extends \CApplicationComponent
 {
  /**
   * Configuration for beanstalkd connections. This is an array containing configurations for

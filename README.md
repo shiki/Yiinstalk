@@ -1,5 +1,5 @@
 
-# Yeanstalk
+# Yiinstalk
 
 A Yii-framework extension that wraps [Pheanstalk](https://github.com/pda/pheanstalk), 
 a PHP client for [beanstalkd](http://xph.us/software/beanstalkd/). 
